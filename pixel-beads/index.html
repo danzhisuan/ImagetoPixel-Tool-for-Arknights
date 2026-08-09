@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《明日方舟》巡展活动 图片转像素工具</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1>《明日方舟》巡展活动 图片转像素工具</h1>
+  </header>
+
+  <main class="layout">
+    <!-- 左侧：上传与设置 -->
+    <section class="panel">
+      <h2>选择图片</h2>
+      <div id="dropzone" tabindex="0" role="button" aria-label="上传图片">
+        <div class="dz-icon">🖼️</div>
+        <p>拖拽图片到这里，或点击选择（也支持 Ctrl+V 粘贴）</p>
+        <input type="file" id="fileInput" accept="image/*" hidden>
+      </div>
+
+      <div class="controls">
+        <label class="control-row">
+          <span>填满方式</span>
+          <select id="fitMode">
+            <option value="stretch">拉伸填满 24×24</option>
+            <option value="contain">保持比例，四周留白</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="original-box">
+        <h3>原图预览</h3>
+        <div id="originalPlaceholder" class="placeholder">还没有图片</div>
+        <img id="originalImg" alt="原图预览" hidden>
+      </div>
+    </section>
+
+    <!-- 右侧：结果 -->
+    <section class="panel result-panel">
+      <div class="result-head">
+        <h2>24 × 24 像素图纸</h2>
+        <div class="result-actions">
+          <button id="exportBtn" type="button" class="btn" disabled>导出 PNG</button>
+        </div>
+      </div>
+
+      <div id="emptyState" class="placeholder empty-state">
+        <div class="dz-icon">🧩</div>
+        <p>粘贴或上传图片后，这里会生成效果图和序号图</p>
+      </div>
+
+      <div id="resultArea" hidden>
+        <div class="grid-wrap">
+          <div class="corner"></div>
+          <div class="col-labels"></div>
+          <div class="row-labels"></div>
+          <div class="grid-box">
+            <canvas id="gridCanvas" width="24" height="24"></canvas>
+            <svg id="gridOverlay" viewBox="0 0 24 24" aria-hidden="true"></svg>
+            <div class="tooltip" hidden></div>
+          </div>
+        </div>
+
+        <div class="grid-wrap grid-wrap-num">
+          <div class="corner"></div>
+          <div class="col-labels"></div>
+          <div class="row-labels"></div>
+          <div class="grid-box">
+            <canvas id="numberCanvas" width="960" height="960"></canvas>
+            <div class="tooltip" hidden></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="chat-panel">
+    <div class="chat-log" id="chatLog"></div>
+    <div class="chat-input-row">
+      <div id="chatBox" class="chat-box" contenteditable="true" data-placeholder="在此粘贴图片（Ctrl+V）"></div>
+      <button id="chatSend" type="button" class="btn">发送</button>
+    </div>
+  </section>
+
+  <footer class="page-footer">作者：胆汁酸</footer>
+
+  <script src="palette.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
