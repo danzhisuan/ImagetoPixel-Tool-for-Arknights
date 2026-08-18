@@ -147,9 +147,9 @@ function onPaste(e) {
   if (file && file.type && file.type.startsWith('image/')) {
     e.preventDefault();
     if (document.activeElement === chatBox) {
-      chatBox.textContent = '🖼️ 图片已接收';
+      chatBox.textContent = '图片已接收';
     }
-    logChat('user', '🖼️ 已粘贴图片');
+    logChat('user', '已粘贴图片');
     loadFile(file);
     toast('已粘贴图片');
   }

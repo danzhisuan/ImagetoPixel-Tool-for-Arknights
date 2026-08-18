@@ -8,7 +8,9 @@
 </head>
 <body>
   <header class="page-header">
-    <h1>《明日方舟》巡展活动 图片转像素工具</h1>
+    <div class="header-tag">ARKNIGHTS</div>
+    <h1>《明日方舟》巡展活动 · 图片转像素工具</h1>
+    <p class="page-subtitle">24×24 像素图纸生成 · 本地处理，不上传图片</p>
   </header>
 
   <main class="layout">
@@ -16,7 +18,13 @@
     <section class="panel">
       <h2>选择图片</h2>
       <div id="dropzone" tabindex="0" role="button" aria-label="上传图片">
-        <div class="dz-icon">🖼️</div>
+        <div class="dz-icon">
+          <svg class="dz-icon-svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="M21 15l-5-5L5 21"></path>
+          </svg>
+        </div>
         <p>拖拽图片到这里，或点击选择（也支持 Ctrl+V 粘贴）</p>
         <input type="file" id="fileInput" accept="image/*" hidden>
       </div>
@@ -48,7 +56,14 @@
       </div>
 
       <div id="emptyState" class="placeholder empty-state">
-        <div class="dz-icon">🧩</div>
+        <div class="dz-icon">
+          <svg class="dz-icon-svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="4" width="7" height="7"></rect>
+            <rect x="13" y="4" width="7" height="7"></rect>
+            <rect x="4" y="13" width="7" height="7"></rect>
+            <rect x="13" y="13" width="7" height="7"></rect>
+          </svg>
+        </div>
         <p>粘贴或上传图片后，这里会生成效果图和序号图</p>
       </div>
 
